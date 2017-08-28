@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'welcome',
     'bossoidc',
-    'djangoidc',
+    'djangooidc',
 )
 
 AUTHENTICATION_BACKENDS = (
