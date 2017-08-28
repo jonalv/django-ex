@@ -44,6 +44,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'debug_toolbar',
     'welcome',
+    'bossoidc',
+    'djangoidc',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'bossoidc.backend.OpenIdConnectBackend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,3 +117,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+auth_uri = "http://keycloak.myproject.svc:8080/auth/realms/sample"
+client_id = "webapp"
+public_uri = "http://keycloak.myproject.svc:8000"
+
+from bossoidc.settings import *
+configure_oidc(auth_uri, client_id, public_uri)
