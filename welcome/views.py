@@ -20,3 +20,7 @@ def index(request):
 
 def health(request):
     return HttpResponse(PageView.objects.count())
+
+@login_required
+def secure(request):
+    return HttpResponse('This page is only visible for the logged in user. <a href="/openid/logout">Logout</a>')
