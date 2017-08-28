@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^secure$', secure),
     url(r'^health$', health),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'openid/', include('djangooidc.urls')),
 ]
